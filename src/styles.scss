@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+quill-editor {
+    width: 100%;
+    min-height: 150px;
+    // border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background: white;
+  }
+  
+  /* Fix Quill toolbar alignment */
+  .ql-toolbar.ql-snow {
+    background: #f3f3f3;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  /* Adjust Quill container */
+  .ql-container {
+    min-height: 200px;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Ensure toolbar buttons are visible */
+  .ql-toolbar button {
+    width: auto;
+  }
+  
+  /* Center icons properly */
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 8px;
+  }
+  
+  ::ng-deep .p-calendar .p-inputtext {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  ::ng-deep .p-calendar .p-datepicker {
+    width: 150px !important; /* Adjust width as needed */
+  }
+  
+  /* Reduces the height of the calendar popup */
+  ::ng-deep .p-calendar .p-datepicker td {
+    padding: 2px !important; /* Adjust padding to reduce height */
+  }
+  
+  /* Optional: Resize the calendar's header */
+  ::ng-deep .p-calendar .p-datepicker-header {
+    font-size: 10px !important; /* Change header font size */
+  }
+  
+  /* Optional: Resize the month and year dropdown */
+  ::ng-deep .p-calendar .p-datepicker-month,
+  ::ng-deep .p-calendar .p-datepicker-year {
+    font-size: 10px !important; /* Change dropdown font size */
+  }
+
+  ::ng-deep .p-calendar .p-datepicker .p-datepicker-prev,
+::ng-deep .p-calendar .p-datepicker .p-datepicker-next {
+  font-size: 12px !important; /* Adjust arrow size */
+}

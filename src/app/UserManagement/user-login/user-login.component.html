@@ -1,0 +1,74 @@
+<div class="login-box items-center">
+    <div class="card shadow-2-strong" style="border-radius: 15px; ">
+        <div class="mb-2 pb-2 pb-md-0 mb-md-3 mt-2 text-center">
+            <div class="md:grid grid-cols-4 flex flex-col md:items-center gap-4 p-4">
+                <form class="box">
+                    <h3>User Login</h3>
+                    <p> Please enter your login and password!</p>
+                    <!-- <div *ngIf="this.status" style="color:red">{{errorMessage}}
+                    </div> -->
+
+                    <!-- <p *ngIf="this.status">
+                        <ngb-alert type="danger" class="text-center justify-content-center" style="display:inline-block;" [dismissible]="false">
+                            <strong>Alert!</strong> {{errorMessage}}.
+                        </ngb-alert>
+                    </p> -->
+
+                    <div *ngIf="this.status" class="col-md-5 margin-text alert alert-danger alert-dismissible fade show">
+                        <strong>Alert! </strong><span>{{errorMessage}}  </span> 
+                        <button type="button" class="close" (click)="closePopup()"  data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="row text-center justify-content-center">
+                        <div class="col-md-5 mb-2">
+                            <div class="form-outline d-flex">
+                                <input type="text" placeholder="User Name" id="userName" name="userName" required
+                                    minlength="8" [(ngModel)]="commonService.loginModel.userName"
+                                    pattern="^(?=.{8,20}$)(?![_.])(?!.*[_.]{3})[a-zA-Z0-9.@_]+(?<![_.])$"
+                                    #userName="ngModel" autocomplete="off" class="form-control text-center">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="userName.invalid && (userName.dirty|| userName.touched)"
+                        style="color: red; margin-top: -03px; margin-bottom: 6px; font-size: medium;">
+                        <div *ngIf="userName.errors?.['required']">User Name Required</div>
+                        <div *ngIf="userName.errors?.['pattern']">User Name Pattern is not valid</div>
+                    </div>
+
+                    <div class="row text-center justify-content-center">
+                        <div class="col-md-5 mb-2">
+                            <div class="form-outline d-flex">
+                                <input placeholder="Password" id="userPass" name="userPass" autocomplete="off" required
+                                    #userPass="ngModel" [(ngModel)]="commonService.loginModel.userPassword" minlength="8"
+                                    [type]="this.passwordType"
+                                    pattern="^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+                                    class="form-control text-center" type="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="userPass.invalid && (userPass.dirty || userPass.touched)"
+                        style="color: red; margin-top: -03px; margin-bottom: 6px; font-size: medium;">
+                        <div *ngIf="userPass.errors?.['required']">Password Required</div>
+                        <div *ngIf="userPass.errors?.['pattern']">Valid Password Format Required
+                            (a-zA-Z/0-9/Symbols)
+                        </div>
+                        <div *ngIf="userPass.errors?.['minlength']">Minimum Length of Password is 8 Letters
+                        </div>
+                    </div>
+                    <label><input type="checkbox" id="chkBox" [(ngModel)]="this.showPassword"
+                            (change)="this.togglePassword()"> Show Password</label>
+
+                    <div class="mt-2 pt-2 justify-content-center text-center mb-2">
+                        <input type="submit" value="Login" class="btn btn-primary btn-m" (click)="login()"
+                            style="margin-right: 20px;">
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

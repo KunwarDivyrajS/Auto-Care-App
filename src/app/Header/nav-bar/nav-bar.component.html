@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <img src="assets/images/AutoCareLogo.png" style="border-radius: 50%;background-color: beige;height: 50px; filter:contrast(1); mix-blend-mode: multiply;">
+      <a class="navbar-brand" style="margin-left: 10px;">Auto Care</a>
+      <!-- <button class="navbar-toggler" type="button" data-coreui-toggle="collapse"  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="display: inline-block;">
+        <ul class="menu">
+          <li class="menu-item"  *ngFor="let nav of navBar['Menu']" [ngClass]="{'has-children': nav.SubMenus?.length}">
+            <a [routerLink]="nav.menu_path" routerLinkActive="active">{{nav.menu_name}}</a>
+            <ul class="submenu" *ngIf="nav.SubMenus?.length">
+                <li *ngFor="let child of nav.SubMenus">
+                    <a [routerLink]="child.menu_path" routerLinkActive="active">{{ child.menu_name }}</a>
+                  </li>
+            </ul>
+          </li>
+          
+          <!-- <li class="nav-item">
+            <a href="#">Logout</a>
+          </li> -->
+        </ul>
+      </div>
+      <div style="display: block;">
+        <button class="btn btn-dark" style="float: left;" (click)="LogOutUser()">LogOut</button>
+       </div>
+      <!-- <div style="display: block;">
+        <button class="btn btn-dark" style="float: left;" (click)="LogOutUser()">LogOut</button>
+       </div> -->
+    </div>
+  </nav>

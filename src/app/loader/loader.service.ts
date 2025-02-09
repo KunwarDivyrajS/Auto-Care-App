@@ -1,0 +1,22 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class LoaderService {
+
+  constructor() { }
+
+  public isLoading : boolean = false;
+  
+  public show(){
+      this.isLoading = true;
+  }
+
+  public hide(){
+   if(this.isLoading){
+    this.isLoading= false;
+   }
+  }
+
+}

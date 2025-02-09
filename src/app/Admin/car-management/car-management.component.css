@@ -1,0 +1,21 @@
+.login-box {
+    padding-top: 12% !important;
+    padding-bottom: 12% !important;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    /* margin-right: 0rem !important;
+    margin-left: 0rem !important;
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important; */
+    background-color: rgb(94, 91, 91);
+}
+
+
+.margin-text {
+    margin-left: 400px;
+}
+
+.errorClass{
+    color:red;
+    font-size: small;
+}
