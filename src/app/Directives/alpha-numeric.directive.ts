@@ -1,24 +1,19 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 
 @Directive({
-  selector: '[AlphaNumeric]',
-  providers: [{
-    provide: NG_VALIDATORS,
-    useExisting: AlphaNumericDirective,
-    multi: true
-  }]
+  selector: '[alphaNumeric]',
+  providers: []
 })
-export class AlphaNumericDirective implements Validator{
+export class AlphaNumericDirective {
 
-  constructor() { }
+  constructor(private elementRef : ElementRef) { }
 
-  validate(control: AbstractControl) : ValidationErrors| null{
-    const val = control.value;
-    const pattern = /^[a-zA-Z0-9]+$/;
-    if(val && !pattern.test(val)){
-      return { alphanumeric : true};
-    }
-    return null;
+  @HostListener('input', ['$event'])
+  onInput(event: InputEvent): void {
+    const inputValue = this.elementRef.nativeElement.value;
+    const filterValue = inputValue.replace(/[^a-zA-Z0-9]/g, '');
+    this.elementRef.nativeElement.value = filterValue;
   }
+
 }

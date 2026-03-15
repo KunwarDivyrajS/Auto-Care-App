@@ -13,6 +13,8 @@ import { AlphaNumericDirective } from './Directives/alpha-numeric.directive';
 import { QuillModule } from 'ngx-quill';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AllowNumericOnlyPipe } from './Pipes/allow-numeric-only.pipe';
+import { SharedModule } from './shared/shared.module';
+import { AllowNumericOnlyDirective } from './Directives/allow-numeric-only.directive';
 //import Aura from '@primeng/themes/aura';
 
 @NgModule({
@@ -20,8 +22,7 @@ import { AllowNumericOnlyPipe } from './Pipes/allow-numeric-only.pipe';
     AppComponent,
     UserLoginComponent,
     LoaderComponent,
-    AlphaNumericDirective,
-    AllowNumericOnlyPipe,
+    AllowNumericOnlyDirective,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { AllowNumericOnlyPipe } from './Pipes/allow-numeric-only.pipe';
     FormsModule,
     HttpClientModule,
     HomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthErrorInterceptor, multi: true },
     

@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { QuillModule } from 'ngx-quill';
 import { CalendarModule } from 'primeng/calendar';
+import { SharedModule } from '../shared/shared.module';
 
 const route : Routes = [
   {
@@ -17,7 +18,7 @@ const route : Routes = [
 ];
 @NgModule({
   declarations: [
-    CarManagementComponent
+    CarManagementComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ const route : Routes = [
     RouterModule.forChild(route),
     QuillModule,
     CalendarModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

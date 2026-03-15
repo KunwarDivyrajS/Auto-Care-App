@@ -56,8 +56,8 @@
                     <div class="row text-center justify-content-center">
                         <div *ngIf="modelCode.invalid && (modelCode.dirty || modelCode.touched)"
                             class="errorClass mb-2">
-                            <span *ngIf="modelCode.errors?.['alphanumeric']">Only alphanumeric characters are
-                                allowed.</span>
+                            <!-- <span *ngIf="modelCode.errors?.['alphanumeric']">Only alphanumeric characters are
+                                allowed.</span> -->
                             <span *ngIf="modelCode.errors?.['required']">Model Code is required.</span>
                         </div>
                         <div class="col-md-6 mb-4">
@@ -66,7 +66,7 @@
                                     style="width:200px; margin-right: 80px;">*Model Code :</label>
                                 <input type="text" placeholder="Model Name" id="modelCode" name="modelCode" required
                                     minlength="10" [(ngModel)]="this.commonServe.carModelManagement.modelCode"
-                                    AlphaNumeric #modelCode="ngModel" autocomplete="off"
+                                    alphaNumeric #modelCode="ngModel" autocomplete="off"
                                     class="form-control text-center">
                             </div>
                         </div>
@@ -115,8 +115,9 @@
                                 <label class="form-label" for="dateManfacturing"
                                     style="width:200px; margin-right: 80px;">*Date of Manufacturing
                                     :</label>
-                                <p-calendar [(ngModel)]="this.commonServe.carModelManagement.dateManfacturing" name="dateManfacturing" [dateFormat]="'dd-mm-yy'"
-                                    id="dateManfacturing" [showIcon]="true" icon="pi pi-calendar"></p-calendar>
+                                <p-calendar [(ngModel)]="this.commonServe.carModelManagement.dateManfacturing"
+                                    name="dateManfacturing" [dateFormat]="'dd-mm-yy'" id="dateManfacturing"
+                                    [showIcon]="true" icon="pi pi-calendar"></p-calendar>
                                 <!-- <p-calendar [(ngModel)]="this.commonServe.carModelManagement.dateManfacturing"
                                  showIcon="true" placeholder="Select Date" id="dateManfacturing" name="dateManfacturing" required></p-calendar> -->
                             </div>
@@ -126,11 +127,11 @@
                     <div class="row justify-content-center">
                         <div class="col-md-6 mb-4">
                             <div class="form-outline d-flex">
-                                <label class="form-label" for="isActive"
-                                    style="width:200px; margin-right: 80px;">Active
+                                <label class="form-label" for="isActive" style="width:200px; margin-right: 80px;">Active
                                     :</label>
-                                    <input type="checkbox" [(ngModel)]="this.commonServe.carModelManagement.isActive" 
-                                    name="isActive" id="isActive" [checked]="this.commonServe.carModelManagement.isActive"/>
+                                <input type="checkbox" [(ngModel)]="this.commonServe.carModelManagement.isActive"
+                                    name="isActive" id="isActive"
+                                    [checked]="this.commonServe.carModelManagement.isActive" />
                             </div>
                         </div>
                     </div>
@@ -141,11 +142,28 @@
                                 <label class="form-label" for="sortOrder"
                                     style="width:200px; margin-right: 80px;">Sort-Order
                                     :</label>
-                                    <input type="text" [(ngModel)]="this.commonServe.carModelManagement.sortOrder" 
-                                    name="sortOrder" id="sortOrder"/>
+                                <input type="text" [(ngModel)]="this.commonServe.carModelManagement.sortOrder"
+                                    name="sortOrder" id="sortOrder" #sortOrder="ngModel" autocomplete="off"
+                                    class="form-control text-center" placeholder="Enter Sort Order" />
                             </div>
                         </div>
                     </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline d-flex">
+                                <label class="form-label" for="sortOrder"
+                                    style="width:200px; margin-right: 80px;">Select File : Drag & Drop
+                                    :</label>
+                                <div class="file-upload">
+                                    <div (drop)="onDrop($event)" >
+                                        <input type="file" (change)="onFileSelected($event)" multiple>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                 </form>
             </div>

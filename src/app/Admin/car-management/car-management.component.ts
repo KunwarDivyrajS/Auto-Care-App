@@ -10,6 +10,8 @@ export class CarManagementComponent implements OnInit {
 
   public dateOfManufacturing : Date = new Date();
   public parentContent: string = '';
+  files: File[] = [];
+  uploadProgress: any;
   constructor(public commonServe : CommonService){
   }
   ngOnInit(): void {
@@ -47,6 +49,15 @@ export class CarManagementComponent implements OnInit {
        console.log(day);
        var showDate = [date.getFullYear(), mnth, day].join("-");
       return showDate;
+    }
+    public onFileSelected(event: any) {
+      for (let file of event.target.files) {
+        this.files.push(file);
+      }
+    }
+
+    public onDrop(event: any){
+      
     }
 
 }
